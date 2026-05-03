@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block scraping of build artifacts (defensive — Vite shouldn't expose these anyway)
+Disallow: /assets/*.map$
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://locked-slotenmakers.be/sitemap.xml
