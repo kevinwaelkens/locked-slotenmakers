@@ -29,7 +29,10 @@ export function useDocumentHead(input: HeadInput): void {
     setMeta("property", "og:title", input.title);
     setMeta("property", "og:description", input.description);
     setMeta("property", "og:url", canonical);
-    if (input.ogImage) setMeta("property", "og:image", input.ogImage);
+    if (input.ogImage) {
+      setMeta("property", "og:image", input.ogImage);
+      setMeta("name", "twitter:image", input.ogImage);
+    }
 
     setMeta("name", "twitter:title", input.title);
     setMeta("name", "twitter:description", input.description);
