@@ -7,23 +7,33 @@ Stack: **Vite v8** · **React 19** · **TanStack Router** (file-based) · **Tail
 ## Lokaal draaien
 
 ```bash
-bun install
-cp .env.example .env  # vul RESEND_API_KEY in
-bun dev
+npm install
+cp .env.example .env  # vul RESEND_API_KEY in als je het formulier wilt testen
+npm run dev
 ```
 
 Open <http://localhost:5173>. HMR + TanStack Router devtools onderaan.
 
+**Let op:** `vite` alleen serveert **geen** `/api/contact`. Om het contactformulier end-to-end te testen (Resend), gebruik de Vercel-runtime lokaal:
+
 ```bash
-bun run build       # productie build naar dist/
-bun run preview     # bekijk de build lokaal
-bun run typecheck   # tsc --noEmit
+npm run dev:vercel
 ```
+
+Volg de URL/poort die de CLI toont; je `.env` met `RESEND_API_KEY` wordt daarbij gebruikt.
+
+```bash
+npm run build       # productie build naar dist/
+npm run preview     # bekijk de build lokaal (zonder API)
+npm run typecheck   # tsc --noEmit
+```
+
+*(Er staat ook een `bun.lock` in de repo — `bun install` / `bun dev` kan als je liever Bun gebruikt.)*
 
 ## Deploy naar Vercel
 
 ```bash
-bunx vercel --prod
+npx vercel --prod
 ```
 
 Of via vercel.com → Import Git Repository → kies dit repo. Settings worden automatisch overgenomen uit `vercel.json`.
