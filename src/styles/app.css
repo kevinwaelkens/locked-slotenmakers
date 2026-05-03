@@ -227,7 +227,12 @@ nav.primary { display: none; }
 .hero .kicker { color: color-mix(in srgb, var(--color-on-brand) 80%, transparent); }
 .hero .kicker::before { background: color-mix(in srgb, var(--color-on-brand) 60%, transparent); }
 .hero .h1 { color: var(--color-on-brand); }
-.hero .h1 em { color: color-mix(in srgb, var(--color-on-brand) 100%, transparent); font-style: italic; }
+.hero .h1 em {
+  color: color-mix(in srgb, var(--color-on-brand) 100%, transparent);
+  font-style: italic;
+  /* Italic Fraunces “g” steekt uit; extra ruimte voor het volgende woord */
+  margin-inline-end: 0.12em;
+}
 .hero-sub {
   font-size: clamp(17px, 1.8vw, 19px);
   line-height: 1.55;

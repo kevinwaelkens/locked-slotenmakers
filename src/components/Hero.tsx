@@ -8,7 +8,7 @@ export function Hero() {
         <div className="kicker">Erkend slotenmaker · Gent &amp; randgemeenten</div>
         <h1 className="h1">
           Slotenmaker<br />
-          in Gent, <em>vliegensvlug</em>&nbsp;ter plaatse.
+          in Gent, <em>vliegensvlug</em> ter plaatse.
         </h1>
         <p className="hero-sub">
           Buitengesloten? Slot kapot? Olivier en zijn team komen op zeer korte tijd langs —
