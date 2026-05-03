@@ -6,7 +6,7 @@
   "description": "Website van Locked Slotenmakers BV — erkend slotenmaker in Gent.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "preview": "vite preview --port 4173",
     "lint": "eslint .",
     "typecheck": "tsc -b --noEmit"
