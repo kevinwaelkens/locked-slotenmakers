@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { business } from "~/data/business";
+import { trackGenerateLead } from "~/lib/analytics";
 import { PhoneIcon, ArrowRightIcon } from "./icons";
 
 type Status =
@@ -35,6 +36,7 @@ export function Contact() {
       });
 
       if (res.ok) {
+        void trackGenerateLead();
         setStatus({ kind: "ok" });
         form.reset();
         return;

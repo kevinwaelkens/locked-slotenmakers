@@ -1,6 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { ConsentProvider } from "~/providers/ConsentProvider";
 import { routeTree } from "./routeTree.gen";
 import "./styles/app.css";
 
@@ -21,6 +22,8 @@ if (!rootEl) throw new Error("#root not found");
 
 createRoot(rootEl).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ConsentProvider>
+      <RouterProvider router={router} />
+    </ConsentProvider>
   </StrictMode>
 );

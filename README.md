@@ -43,6 +43,9 @@ Of via vercel.com → Import Git Repository → kies dit repo. Settings worden a
 | Naam | Waarde | Scope |
 |---|---|---|
 | `RESEND_API_KEY` | Je Resend API key | Production, Preview, Development |
+| `VITE_GA_MEASUREMENT_ID` | GA4 Measurement ID (`G-…`) | Production, Preview (optioneel) |
+
+Leeg laten = geen Google Analytics en geen cookiebanner. Met ID: Consent Mode v2 + Nederlandstalige keuze vóór meting.
 
 **Custom domein** koppelen:
 1. Vercel project → Settings → Domains → `locked-slotenmakers.be`

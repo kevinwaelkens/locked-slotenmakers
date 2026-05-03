@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { business } from "~/data/business";
+import { GA_MEASUREMENT_ID, openCookiePreferences } from "~/lib/analytics";
 
 export function Footer() {
   return (
@@ -52,6 +53,15 @@ export function Footer() {
           <span>BTW {business.vat}</span>
           <span>© {new Date().getFullYear()} {business.legalName}</span>
           <span>{business.membership}</span>
+          {GA_MEASUREMENT_ID ? (
+            <button
+              type="button"
+              className="foot-cookie-link"
+              onClick={openCookiePreferences}
+            >
+              Cookievoorkeuren
+            </button>
+          ) : null}
         </div>
       </div>
     </footer>
