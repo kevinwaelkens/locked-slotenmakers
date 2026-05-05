@@ -1,17 +1,27 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import netlify from "@netlify/vite-plugin-tanstack-start";
 import path from "node:path";
+import { areas } from "./src/data/areas";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    // Generates routeTree.gen.ts from src/routes/* — must run before React plugin
-    TanStackRouterVite({
-      target: "react",
-      autoCodeSplitting: true,
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        crawlLinks: true,
+        concurrency: 8,
+      },
+      pages: [
+        { path: "/" },
+        { path: "/tarieven" },
+        { path: "/slotenmaker" },
+        ...areas.map((a) => ({ path: `/slotenmaker/${a.slug}` })),
+      ],
     }),
+    netlify(),
     react(),
     tailwindcss(),
   ],
@@ -24,9 +34,5 @@ export default defineConfig({
     target: "es2022",
     cssCodeSplit: true,
     sourcemap: false,
-  },
-  server: {
-    port: 5173,
-    open: true,
   },
 });

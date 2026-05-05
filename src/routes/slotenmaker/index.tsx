@@ -1,36 +1,52 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { areas } from "~/data/areas";
 import { Contact } from "~/components/Contact";
-import { BreadcrumbJsonLd } from "~/lib/jsonld";
-import { useDocumentHead } from "~/lib/seo";
+import { breadcrumbJsonLdData } from "~/lib/jsonld";
+
+const SITE_URL = "https://locked-slotenmakers.be";
+
+const TITLE =
+  "Slotenmaker in Gent en omstreken | Locked Slotenmakers — kies uw gemeente";
+const DESCRIPTION =
+  "Erkend slotenmaker in Gent, Sint-Amandsberg, Gentbrugge, Ledeberg, Wondelgem, Drongen, Merelbeke, Destelbergen en Mariakerke. Vind uw gemeente en bel direct.";
+const CANONICAL = `${SITE_URL}/slotenmaker`;
 
 export const Route = createFileRoute("/slotenmaker/")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:url", content: CANONICAL },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+    ],
+    links: [{ rel: "canonical", href: CANONICAL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(
+          breadcrumbJsonLdData([
+            { name: "Home", path: "/" },
+            { name: "Slotenmaker", path: "/slotenmaker" },
+          ]),
+        ),
+      },
+    ],
+  }),
   component: SlotenmakerOverview,
 });
 
 function SlotenmakerOverview() {
-  useDocumentHead({
-    title:
-      "Slotenmaker in Gent en omstreken | Locked Slotenmakers — kies uw gemeente",
-    description:
-      "Erkend slotenmaker in Gent, Sint-Amandsberg, Gentbrugge, Ledeberg, Wondelgem, Drongen, Merelbeke, Destelbergen en Mariakerke. Vind uw gemeente en bel direct.",
-    path: "/slotenmaker",
-  });
-
   return (
     <>
-      <BreadcrumbJsonLd
-        trail={[
-          { name: "Home", path: "/" },
-          { name: "Slotenmaker", path: "/slotenmaker" },
-        ]}
-      />
-
       <section className="hero">
         <div className="wrap hero-inner">
           <div className="kicker">Werkgebied</div>
           <h1 className="h1">
-            Slotenmaker voor <em>Gent</em><br />
+            Slotenmaker voor <em>Gent</em>
+            <br />
             en omstreken.
           </h1>
           <p className="hero-sub">
@@ -55,7 +71,13 @@ function SlotenmakerOverview() {
                 style={{ textDecoration: "none" }}
               >
                 <h3>Slotenmaker {a.name}</h3>
-                <p style={{ marginTop: 4, fontSize: 13, color: "var(--color-ink-soft)" }}>
+                <p
+                  style={{
+                    marginTop: 4,
+                    fontSize: 13,
+                    color: "var(--color-ink-soft)",
+                  }}
+                >
                   {a.postalCode} · ~{a.drivingTime} min ter plaatse
                 </p>
                 <p>{a.intro}</p>
