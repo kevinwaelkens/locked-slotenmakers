@@ -96,6 +96,10 @@ const consentDefaultScript = `window.dataLayer=window.dataLayer||[];function gta
 const FONTS_HREF =
   "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,350..480,30..100&family=Inter:wght@300..700&display=swap";
 
+// Non-blocking font CSS load: inject as media="print", flip to "all" onload.
+// Falls back to a <noscript> tag below for clients without JS.
+const fontLoaderScript = `(function(){var l=document.createElement('link');l.rel='stylesheet';l.href=${JSON.stringify(FONTS_HREF)};l.media='print';l.onload=function(){l.media='all'};document.head.appendChild(l);})();`;
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -154,11 +158,11 @@ export const Route = createRootRoute({
         crossOrigin: "anonymous",
       },
       { rel: "preload", as: "style", href: FONTS_HREF },
-      { rel: "stylesheet", href: FONTS_HREF },
       { rel: "stylesheet", href: appCss },
     ],
     scripts: [
       { children: consentDefaultScript },
+      { children: fontLoaderScript },
       {
         type: "application/ld+json",
         children: JSON.stringify(localBusinessJsonLd),
@@ -171,6 +175,7 @@ export const Route = createRootRoute({
   }),
   shellComponent: RootDocument,
   component: RootLayout,
+  notFoundComponent: NotFound,
 });
 
 function RootDocument({ children }: { children: ReactNode }) {
@@ -178,6 +183,9 @@ function RootDocument({ children }: { children: ReactNode }) {
     <html lang="nl-BE">
       <head>
         <HeadContent />
+        <noscript>
+          <link rel="stylesheet" href={FONTS_HREF} />
+        </noscript>
       </head>
       <body>
         <a className="skip-link" href="#main-content">
@@ -187,6 +195,35 @@ function RootDocument({ children }: { children: ReactNode }) {
         <Scripts />
       </body>
     </html>
+  );
+}
+
+function NotFound() {
+  return (
+    <ConsentProvider>
+      <Header />
+      <main id="main-content">
+        <section className="hero">
+          <div className="wrap hero-inner">
+            <div className="kicker">404 — Pagina niet gevonden</div>
+            <h1 className="h1">
+              Deze pagina <em>bestaat niet</em>.
+            </h1>
+            <p className="hero-sub">
+              De link is mogelijk verouderd of verkeerd ingetypt. Ga terug naar
+              de homepage of bel ons direct als u dringend hulp nodig heeft.
+            </p>
+            <div className="hero-actions" style={{ marginTop: 32 }}>
+              <a href="/" className="btn-primary">
+                Naar de homepage
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+      <MobileCallPill />
+    </ConsentProvider>
   );
 }
 
