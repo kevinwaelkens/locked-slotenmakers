@@ -8,7 +8,7 @@ export function Area() {
         <div className="section-head">
           <h2 className="h2">De slotenmaker voor Gent en omstreken.</h2>
           <p className="lead" style={{ marginTop: 16 }}>
-            Wanneer u in nood bent, is één van onze medewerkers vliegensvlug bij u ter plekke.
+            Wanneer u in nood bent, is één van onze medewerkers snel bij u ter plekke.
             Klik op uw gemeente voor lokale info en indicatieve aanrijtijd.
           </p>
         </div>

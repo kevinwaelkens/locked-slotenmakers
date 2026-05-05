@@ -14,7 +14,7 @@ export const pricingColumns = [
 export const pricingRows: PricingRow[] = [
   {
     label: "Forfait eerste uur",
-    prices: [60, 60],
+    prices: [75, 75],
   },
   {
     label: "Per extra 15 min",
@@ -30,4 +30,4 @@ export const pricingRows: PricingRow[] = [
 
 export const pricingNote =
   "In het weekend en op feestdagen zijn we niet beschikbaar voor depannages.";
-export const pricingDisclaimer = "Alle prijzen excl. 21 % btw";
+export const pricingDisclaimer = "Alle prijzen excl. btw";

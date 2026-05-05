@@ -86,7 +86,7 @@ export function PricingJsonLd() {
         priceCurrency: "EUR",
         provider: { "@id": BUSINESS_ID },
         description:
-          "Forfait eerste uur op werkdagen overdag: € 60 (excl. btw). Avond/nacht: identiek. Dringende interventie: € 75 overdag, € 125 's avonds en 's nachts.",
+          "Forfait eerste uur op werkdagen overdag: € 75 (excl. btw). Avond/nacht: identiek. Dringende interventie: € 75 overdag, € 125 's avonds en 's nachts.",
       }}
     />
   );

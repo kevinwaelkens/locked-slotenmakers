@@ -9,14 +9,14 @@ export const faq: FaqEntry[] = [
   {
     question: "Wat doet een slotenmaker als ik buitengesloten ben?",
     answer:
-      "Onze slotenmaker komt vliegensvlug ter plaatse in Gent en randgemeenten, opent uw deur voorzichtig — meestal zonder schade aan slot of deur — en herstelt of vervangt het slot enkel als dat strikt nodig is. U bent meestal binnen het uur opnieuw binnen.",
+      "Onze slotenmaker komt snel ter plaatse in Gent en randgemeenten, opent uw deur voorzichtig — meestal zonder schade aan slot of deur — en herstelt of vervangt het slot enkel als dat strikt nodig is. U bent meestal binnen het uur opnieuw binnen.",
   },
   {
     question: "Wat kost een spoedopening in Gent?",
     answer:
-      "Op werkdagen tussen 08:30 en 17:00 betaalt u € 60 forfait voor het eerste uur (excl. btw). 's Avonds en 's nachts gelden hogere tarieven. De volledige prijslijst staat op onze tarievenpagina.",
+      "Op werkdagen tussen 08:30 en 17:00 betaalt u € 75 forfait voor het eerste uur (excl. btw). 's Avonds en 's nachts gelden hogere tarieven. De volledige prijslijst staat op onze tarievenpagina.",
     answerHtml:
-      "Op werkdagen tussen 08:30 en 17:00 betaalt u € 60 forfait voor het eerste uur (excl. btw). 's Avonds en 's nachts gelden hogere tarieven. De volledige prijslijst staat [hier](#tarieven).",
+      "Op werkdagen tussen 08:30 en 17:00 betaalt u € 75 forfait voor het eerste uur (excl. btw). 's Avonds en 's nachts gelden hogere tarieven. De volledige prijslijst staat [hier](#tarieven).",
   },
   {
     question: "Krijg ik een gratis offerte voor slotvervanging of beveiliging?",

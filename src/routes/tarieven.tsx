@@ -16,7 +16,7 @@ function TarievenPage() {
     title:
       "Tarieven slotenmaker Gent | Locked Slotenmakers — transparante prijzen",
     description:
-      "Volledige prijslijst voor depannage in Gent en randgemeenten. Forfait eerste uur vanaf € 60 op werkdagen. Gratis offerte voor geplande werken.",
+      "Volledige prijslijst voor depannage in Gent en randgemeenten. Forfait eerste uur vanaf € 75 op werkdagen. Gratis offerte voor geplande werken.",
     path: "/tarieven",
   });
 
