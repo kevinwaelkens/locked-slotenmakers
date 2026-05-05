@@ -108,8 +108,14 @@ export const Route = createFileRoute("/api/contact")({
 
           if (error) {
             console.error("Resend error:", error);
+            const debug = process.env.CONTACT_DEBUG === "1";
             return json(
-              { error: "Verzenden mislukt. Probeer opnieuw of bel direct." },
+              {
+                error: "Verzenden mislukt. Probeer opnieuw of bel direct.",
+                ...(debug && {
+                  resend: { name: error.name, message: error.message },
+                }),
+              },
               502,
             );
           }
