@@ -27,7 +27,7 @@ export const Route = createFileRoute("/slotenmaker/$slug")({
     if (!area) return {};
     const title = `Slotenmaker ${area.name} | Locked Slotenmakers — spoedopening, slotvervanging`;
     const description = `Erkend slotenmaker in ${area.name} (${area.postalCode}). Spoedopeningen, slotvervanging en inbraakbeveiliging — meestal binnen ~${area.drivingTime} minuten ter plaatse vanuit Gent.`;
-    const canonical = `${SITE_URL}/slotenmaker/${area.slug}`;
+    const canonical = `${SITE_URL}/slotenmaker/${area.slug}/`;
     return {
       meta: [
         { title },
@@ -55,8 +55,8 @@ export const Route = createFileRoute("/slotenmaker/$slug")({
           children: JSON.stringify(
             breadcrumbJsonLdData([
               { name: "Home", path: "/" },
-              { name: "Slotenmaker", path: "/slotenmaker" },
-              { name: area.name, path: `/slotenmaker/${area.slug}` },
+              { name: "Slotenmaker", path: "/slotenmaker/" },
+              { name: area.name, path: `/slotenmaker/${area.slug}/` },
             ]),
           ),
         },

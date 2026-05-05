@@ -9,7 +9,7 @@ const TITLE =
   "Slotenmaker in Gent en omstreken | Locked Slotenmakers — kies uw gemeente";
 const DESCRIPTION =
   "Erkend slotenmaker in Gent, Sint-Amandsberg, Gentbrugge, Ledeberg, Wondelgem, Drongen, Merelbeke, Destelbergen en Mariakerke. Vind uw gemeente en bel direct.";
-const CANONICAL = `${SITE_URL}/slotenmaker`;
+const CANONICAL = `${SITE_URL}/slotenmaker/`;
 
 export const Route = createFileRoute("/slotenmaker/")({
   head: () => ({
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/slotenmaker/")({
         children: JSON.stringify(
           breadcrumbJsonLdData([
             { name: "Home", path: "/" },
-            { name: "Slotenmaker", path: "/slotenmaker" },
+            { name: "Slotenmaker", path: "/slotenmaker/" },
           ]),
         ),
       },

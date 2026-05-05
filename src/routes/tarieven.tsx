@@ -12,7 +12,7 @@ const TITLE =
   "Tarieven slotenmaker Gent | Locked Slotenmakers — transparante prijzen";
 const DESCRIPTION =
   "Volledige prijslijst voor depannage in Gent en randgemeenten. Forfait eerste uur vanaf € 75 op werkdagen. Gratis offerte voor geplande werken.";
-const CANONICAL = `${SITE_URL}/tarieven`;
+const CANONICAL = `${SITE_URL}/tarieven/`;
 
 export const Route = createFileRoute("/tarieven")({
   head: () => ({
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/tarieven")({
         children: JSON.stringify(
           breadcrumbJsonLdData([
             { name: "Home", path: "/" },
-            { name: "Tarieven", path: "/tarieven" },
+            { name: "Tarieven", path: "/tarieven/" },
           ]),
         ),
       },
